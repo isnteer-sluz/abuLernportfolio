@@ -3,20 +3,22 @@
 # Hugo build
 hugo
 
-# Wechsle in public/
+# In den public-Ordner wechseln
 cd public
 
-# Init Git (nur hier!)
-git init
-git remote add origin https://github.com/isnteer-sluz/abuLernportfolio.git
-git checkout -b gh-pages
+# Wenn kein Git-Repo vorhanden → initialisieren
+if [ ! -d .git ]; then
+  git init
+  git remote add origin https://github.com/isnteer-sluz/abuLernportfolio.git
+  git checkout -b gh-pages
+else
+  git checkout gh-pages
+fi
 
-# Alles committen
+# Commit & Push
 git add .
-git commit -m "Deploy Hugo site"
-
-# Push auf gh-pages (force, weil separater Git in /public)
+git commit -m "Deploy Hugo site" || echo "🔄 Keine Änderungen zum Commit"
 git push --force origin gh-pages
 
-# Zurück ins Hauptverzeichnis
+# Zurück ins Projektverzeichnis
 cd ..
