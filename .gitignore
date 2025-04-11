@@ -1,0 +1,12 @@
+# Hugo build output (nicht ignorieren!)
+# public/ wird gebraucht für Deployment → NICHT eintragen!
+
+# Hugo cache
+/resources/
+
+# macOS system files
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
